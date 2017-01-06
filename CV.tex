@@ -1,0 +1,153 @@
+\documentclass[10pt,oneside]{article}
+\usepackage{geometry}
+\usepackage[T1]{fontenc}
+
+\pagestyle{empty}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=0.9in,rmargin=0.9in,headheight=0in,headsep=0in,footskip=.3in}
+
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0in}
+\setlength{\itemsep}{0in}
+\setlength{\topsep}{0in}
+\setlength{\tabcolsep}{0in}
+
+% Name and contact information
+\newcommand{\name}{Yang Liu}
+\newcommand{\addr}{}
+\newcommand{\phone}{(+86) 13162516663}
+\newcommand{\email}{ly950710@gmail.com}
+
+
+% This defines how the name looks
+\newcommand{\bigname}[1]{
+	\begin{center}\fontfamily{phv}\selectfont\Huge\scshape#1\end{center}
+}
+
+% A ressection is a main section (<H1>Section</H1>)
+\newenvironment{ressection}[1]{
+	\vspace{4pt}
+	{\fontfamily{phv}\selectfont\Large#1}
+	\begin{itemize}
+	\vspace{3pt}
+}{
+	\end{itemize}
+}
+
+% A resitem is a simple list element in a ressection (first level)
+\newcommand{\resitem}[1]{
+	\vspace{-4pt}
+	\item \begin{flushleft} #1 \end{flushleft}
+%	\item  #1 
+}
+
+% A ressubitem is a simple list element in anything but a ressection (second level)
+\newcommand{\ressubitem}[1]{
+	\vspace{-1pt}
+	\item \begin{flushleft} #1 \end{flushleft}
+%	\item  #1 
+}
+
+% A resbigitem is a complex list element for stuff like jobs and education:
+%  Arg 1: Name of company or university
+%  Arg 2: Location
+%  Arg 3: Title and/or date range
+\newcommand{\resbigitem}[3]{
+	\vspace{-5pt}
+	\item
+	\textbf{#1}---#2 \
+	\textit{#3}
+}
+
+% This is a list that comes with a resbigitem
+\newenvironment{ressubsec}[3]{
+	\resbigitem{#1}{#2}{#3}
+	\vspace{-2pt}
+	\begin{itemize}
+}{
+	\end{itemize}
+}
+
+% This is a simple sublist
+\newenvironment{reslist}[1]{
+	\resitem{\textbf{#1}}
+	\vspace{-5pt}
+	\begin{itemize}
+}{
+	\end{itemize}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Now for the actual document:
+
+\begin{document}
+
+\fontfamily{ppl} \selectfont
+
+% Name with horizontal rule
+\bigname{Yang Liu}
+
+\vspace{-8pt} \rule{\textwidth}{1pt}
+
+\vspace{-1pt} {4800 Caoan Street \hfill ly950710@gmail.com}
+
+\vspace{-1pt} {Jiading, Shanghai, China}
+
+\vspace{-1pt} {(+86) 13162516663}
+
+\vspace{8 pt}
+
+\newcommand{\textsharp}{$\sharp$}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{Education}
+	\begin{ressubsec}{Tongji University}{Shanghai, China \hfill \textbf{Sept. 2013-Jun. 2017}}{}
+		\ressubitem{B.E. in Information Security, Computer Science and Technology Institution. GPA: 87.3/100}
+	\end{ressubsec}
+\end{ressection}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{Project Experience}
+	\begin{reslist}{Tic-tac-toe Artificial Intelligence \hfill July. 2015-Oct. 2015}
+		\ressubitem{Developed Graphical User Interface (front end) by Qt Quick 5, and back end by Python3.}
+		\ressubitem{Connected front end and back end in C++ and controlled the logic of front end in Javascript.}
+		\ressubitem{Applied game tree the main algorithm and used a valuation function to calculate the priority after comparing the result of each step.}
+		\ressubitem{Optimized the program performance with $\alpha-\beta$ pruning algorithm.}
+	\end{reslist}
+	\begin{reslist}{MIPS Microcomputer \hfill Oct. 2015-Dec. 2015}
+		\ressubitem{Implemented a microcomputer based on MIPS Instruction set, developed in Verilog and tested on FPGA (Xilinx Nexys 3). }
+		\ressubitem{Equipped with a 5-stage-pipeline CPU in Harvard Architecture to reach a highest clock frequency.}
+		\ressubitem{Developed a Tic-Tac-Toe game written in MIPS assembly language running on the microcomputer.}
+	\end{reslist}
+	\begin{reslist}{Cloud Storage Drive \hfill Mar. 2016-May. 2016}
+		\ressubitem{Created an online storage service, including client-side, server-side and website.}
+		\ressubitem{Developed the server-side in C++, running on Linux and using MariaDB as database.}
+		\ressubitem{Developed the client-side in C$^\sharp$, running on Windows and using WPF as GUI framework.}
+		\ressubitem{Developed the website in Python, running on Linux and using Flask as web framework.}
+		\ressubitem{Enabled users to upload, download, move, rename and copy files.}
+		\ressubitem{Used MD5 of files as hashcode to distinguish, and for instant uploading if the server has already kept the file.}
+	\end{reslist}
+	\begin{reslist}{Indoor Autonomous Patrol Robot \hfill Apr. 2016-July. 2016}
+		\ressubitem{Based the control program on OpenCV and ROS, running on Linux and communicating in socket.}
+		\ressubitem{Equipped with autonomous patrol and simultaneous foreign matters detection.}
+		\ressubitem{Enabled users to control the robot manually on the specific joystick for surroundings inspection.}
+	\end{reslist}
+\end{ressection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{Skills}
+
+	\resitem{Programming Languages: C, C++, C$^\sharp$, Java, Python, JavaScript, SQL}
+	\resitem{Working knowledge in Linux, Visual Studio, Vim, Intellij IDEA, Git}
+	\resitem{Familiar with Developments in Single-chip Microcomputers, Embedded Platforms and Software Defined Networking(SDN)}
+	
+\end{ressection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{Awards and Honors}
+	\resitem{1st Prize in Intel Cup Undergraduate Electronic Design Contest - Embedded System Design Invitational Contest (top 13 in 160 teams all over the world) \hfill July. 2016}
+	\resitem{3rd Prize in Shanghai in National Undergraduate Electronic Design Contest \hfill {June. 2015}}
+\end{ressection}
+
+\end{document}
